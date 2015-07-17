@@ -5,7 +5,7 @@ Works best with args[0]= 20 and args[1]= 2 as args
 */
 
 
-function makeFiber(fiberLength) {
+function makeFiber(fiberLength,voxelSize) {
 
     var radius = 0.5*MM;
     var Radius = 0.5*MM; // 4 for chunky yark aesthetic
@@ -36,7 +36,7 @@ function main(args) {
     
     if (i%2 ===0) {
     count = i*gridDensity;
-    var fiber = makeFiber(fiberLength);
+    var fiber = makeFiber(fiberLength,voxelSize);
     var ct = new CompositeTransform();
     ct.add(new Rotation(0,1,0, Math.PI/2)); 
     ct.add(new Translation(fiberLength/2*MM,1.5*MM,2*count*MM));
@@ -46,7 +46,7 @@ function main(args) {
     else {
     
     count = i*gridDensity;
-    var fiber3 = makeFiber(fiberLength);
+    var fiber3 = makeFiber(fiberLength,voxelSize);
     var ct2 = new CompositeTransform();
     ct2.add(new Rotation(0,1,0, Math.PI/2)); 
     ct2.add(new Translation(fiberLength/2*MM,-1.5*MM,2*count*MM));
@@ -61,7 +61,7 @@ function main(args) {
   
   while (n < fiberNumber){ 
     count = n*gridDensity;
-    var fiber2 = makeFiber(fiberLength);
+    var fiber2 = makeFiber(fiberLength,voxelSize);
     fiber2.setTransform(new Translation(count*MM,0,fiberLength*0.5*MM));
     union.add(fiber2);
      n++;
